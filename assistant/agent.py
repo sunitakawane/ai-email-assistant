@@ -20,3 +20,49 @@ def understand_email(email):
         ]
     )
     return response.choices[0].message.content
+
+def plan_response(email, understanding, context):
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {
+                "role": "system",
+                "content": prompts.PLAN_SYSTEM
+            },
+            {
+                "role": "user",
+                "content": prompts.PLAN_USER.format(
+                    email=email,
+                    understanding=understanding,
+                    context=context
+                )
+            }
+        ]
+    )
+
+    return response.choices[0].message.content
+
+
+
+def draft_reply(email, plan, context):
+
+    response = client.chat.completions.create(
+        model=MODEL,
+        messages=[
+            {
+                "role": "system",
+                "content": prompts.DRAFT_SYSTEM
+            },
+            {
+                "role": "user",
+                "content": prompts.DRAFT_USER.format(
+                    email=email,
+                    plan=plan,
+                    context=context
+                )
+            }
+        ]
+    )
+
+    return response.choices[0].message.content
+

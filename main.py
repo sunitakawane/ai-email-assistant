@@ -3,8 +3,8 @@
 from assistant import (
     MODEL,
     understand_email,
-    # plan_response,
-    # draft_reply,
+    plan_response,
+    draft_reply,
     # review_reply,
     # revise_reply,
     # email_agent,
@@ -30,3 +30,20 @@ I expect to finish it by Thursday afternoon.
 understanding = understand_email(email)
 
 print(understanding)
+
+plan = plan_response(
+    email,
+    understanding,
+    user_context
+)
+
+print(plan)
+
+
+draft = draft_reply(
+    email,
+    plan,
+    user_context
+)
+
+print(draft)
