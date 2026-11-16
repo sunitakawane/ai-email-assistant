@@ -1,0 +1,5 @@
+.env
+.venv/
+.vscode/
+.ipynb_checkpoints/
+assistant/__pycache__
