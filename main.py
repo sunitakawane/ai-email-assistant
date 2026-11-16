@@ -5,9 +5,9 @@ from assistant import (
     understand_email,
     plan_response,
     draft_reply,
-    # review_reply,
-    # revise_reply,
-    # email_agent,
+    review_reply,
+    revise_reply,
+    email_agent,
 )
 
 print("Using model:", MODEL)
@@ -27,23 +27,49 @@ The project report is not complete yet.
 I expect to finish it by Thursday afternoon.
 """
 
-understanding = understand_email(email)
+# understanding = understand_email(email)
 
-print(understanding)
+# print(understanding)
 
-plan = plan_response(
-    email,
-    understanding,
-    user_context
-)
+# plan = plan_response(
+#     email,
+#     understanding,
+#     user_context
+# )
 
-print(plan)
+# print(plan)
 
 
-draft = draft_reply(
-    email,
-    plan,
-    user_context
-)
+# draft = draft_reply(
+#     email,
+#     plan,
+#     user_context
+# )
 
-print(draft)
+# print(draft)
+
+
+# review = review_reply(
+#     email,
+#     draft,
+#     user_context
+# )
+
+# print(review)
+
+# if review.startswith("NEEDS_REVISION"):
+
+#     draft = revise_reply(
+#         email,
+#         draft,
+#         review,
+#         user_context
+#     )
+
+# print(draft)
+
+
+final_email = email_agent(email, user_context)
+
+print("\nFinal email:")
+print(final_email)

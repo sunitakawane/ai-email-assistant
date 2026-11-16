@@ -54,3 +54,58 @@ DRAFT_USER = """
 
                 Draft the reply.
                 """
+
+
+# --- Step 4: review the draft ---
+
+REVIEW_SYSTEM = """
+                You are an email reviewer.
+
+                Review the draft against the original email.
+
+                Check:
+                1. Does it answer the sender's request?
+                2. Is it clear and professional?
+                3. Does it contain unsupported information?
+
+                If the draft is good, start with APPROVED.
+                Otherwise, start with NEEDS_REVISION
+                and explain what should be changed.
+                """
+
+REVIEW_USER = """
+                Original email:
+                {email}
+
+                User-provided information:
+                {context}
+
+                Draft reply:
+                {draft}
+                """
+
+# --- Step 5: revise the draft ---
+
+REVISE_SYSTEM = """
+                You are an email writing assistant.
+                Improve the draft using the review feedback.
+                Preserve all factual information.
+                Do not invent details.
+                Return only the revised email.
+                """
+
+REVISE_USER = """
+                Original email:
+                {email}
+
+                User information:
+                {context}
+
+                Previous draft:
+                {draft}
+
+                Review feedback:
+                {review}
+
+                Improve the draft.
+                """
